@@ -2,8 +2,13 @@ const CharSrvcInstance = new CharSrvc();
 CharSrvcInstance.getCharacters().then(response => {
   const { results } = JSON.parse(response);
   const charContainer = document.getElementById('characters');
-  let html = '<div class="character-card">';
-  results.forEach(char => (html += `<h1>${char.name}</h1>`));
-  html += '</div>';
+  const style = `display:flex;flex-direction:column;width:300px;height:350px;align-items:center;justify-content:center;`;
+  let html = '';
+  results.forEach(
+    char =>
+      (html += `<div style=${style}><h1>${char.name}</h1><p>${
+        char.birth_year
+      }</p></div>`)
+  );
   charContainer.innerHTML = html;
 });
