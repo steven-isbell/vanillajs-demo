@@ -1,6 +1,5 @@
 // root element
 const renderElem = document.getElementById('app');
-console.dir(renderElem);
 
 const renderContent = () => {
   return App().then(val => {
