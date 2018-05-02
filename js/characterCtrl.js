@@ -1,4 +1,5 @@
 const CharSrvcInstance = new CharSrvc();
+
 CharSrvcInstance.getCharacters().then(response => {
   const { results } = JSON.parse(response);
   const charContainer = document.getElementById('characters');
