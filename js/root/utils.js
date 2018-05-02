@@ -1,5 +1,5 @@
-const update = () => {
+const renderContent = () => {
   return App().then(val => (renderElem.innerHTML = val));
 };
 
-window.onhashchange = () => update();
+window.onhashchange = () => renderContent();

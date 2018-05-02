@@ -1,5 +1,5 @@
 // root element
 const renderElem = document.getElementById('app');
 
-// initial load
-update();
+// initial load from utils
+renderContent();
