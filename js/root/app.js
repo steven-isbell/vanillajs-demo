@@ -1,9 +1,10 @@
-(function() {
-  function init() {
-    var router = new Router([
-      new Route('home', 'landing.html', true),
-      new Route('characters', 'characters.html')
-    ]);
+const BASE_PATH = '127.0.0.1:8080/';
+
+const App = async () => {
+  if (location.hash === '#characters') {
+    const chars = await getChars();
+    return `${CharContainer(chars)}`;
+  } else {
+    return `<div>HOME PAGE</div>`;
   }
-  init();
-})();
+};

@@ -1,3 +1,5 @@
 const render = document.getElementById('app');
 
-// render.innerHTML = renderContent();
+App().then(val => {
+  render.innerHTML = val;
+});
