@@ -9,9 +9,12 @@ class Button {
     elem.innerText = this.text;
     elem.setAttribute(
       'style',
-      `height: 20px; border-radius: 3px; background: ${
-        this.text === 'next' ? '#3082F7' : '#DC3732'
-      };`
+      `padding: 20px;
+      border-radius: 3px;
+      background: ${this.text === 'next' ? '#3082F7' : '#DC3732'};
+      font-size: 16px;
+      margin: 5px;
+      color: #fff;`
     );
     elem.addEventListener('click', async () => {
       return renderContent(this.url);

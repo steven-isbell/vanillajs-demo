@@ -58,8 +58,8 @@ const CharContainer = chars => {
         `${parseInt(chars.next[chars.next.length - 1]) - 2}`
   );
 
-  buttonGrp.appendChild(nextBtn.render());
   buttonGrp.appendChild(prevBtn.render());
+  buttonGrp.appendChild(nextBtn.render());
 
   elem.appendChild(cardGrp);
   elem.appendChild(buttonGrp);
