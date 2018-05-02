@@ -10,6 +10,7 @@ function getChars() {
         if (this.readyState !== 4) {
           renderElem.innerText = 'Loading...';
         } else if (this.readyState === 4 && this.status === 200) {
+          renderElem.innerText = null;
           const { results } = JSON.parse(this.responseText);
           cache.people = results;
           resolve(results);
@@ -22,7 +23,15 @@ function getChars() {
 }
 
 const CharContainer = chars => {
-  return `<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;">
-            ${chars.map(CharCard).join('')}
-          </div>`;
+  const elem = document.createElement('div');
+  elem.setAttribute(
+    'style',
+    `display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;`
+  );
+  const characters = chars.map(CharCard);
+  characters.forEach(val => elem.appendChild(val));
+  return elem;
 };
