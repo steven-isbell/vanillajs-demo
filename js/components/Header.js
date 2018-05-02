@@ -1,3 +1,4 @@
+// standard function returning HTML element
 const Header = () => {
   const elem = document.createElement('header');
   elem.style.marginBottom = '15px';

@@ -1,3 +1,4 @@
+// Card component for rendering character info
 const CharCard = char => {
   const elem = document.createElement('div');
   elem.setAttribute(

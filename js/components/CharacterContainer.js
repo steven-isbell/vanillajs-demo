@@ -1,7 +1,9 @@
+// chace the request
 const cache = {};
 
 const BASE_URL = 'https://www.swapi.co/api/people';
 
+// XMLHttpRequest Handler
 function getChars(url = BASE_URL) {
   return new Promise(function(resolve, reject) {
     if (cache.people && url === BASE_URL) {
@@ -24,6 +26,7 @@ function getChars(url = BASE_URL) {
   });
 }
 
+// Container for our character cards
 const CharContainer = chars => {
   const { results } = chars;
   const elem = document.createElement('div');

@@ -1,6 +1,7 @@
 // root element
 const renderElem = document.getElementById('app');
 
+// The content to render to the DOM
 const renderContent = url => {
   return App(url).then(val => {
     const prev = renderElem.childNodes[0] || null;

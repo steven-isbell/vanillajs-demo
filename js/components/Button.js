@@ -1,3 +1,4 @@
+// reusable button component
 class Button {
   constructor(text, url) {
     this.text = text;

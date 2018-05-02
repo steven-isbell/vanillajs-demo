@@ -1,3 +1,4 @@
+// App is deciding what content to render
 const App = async url => {
   switch (location.hash) {
     case '#characters':
