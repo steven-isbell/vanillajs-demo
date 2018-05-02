@@ -1,7 +1,7 @@
-const App = async () => {
+const App = async url => {
   switch (location.hash) {
     case '#characters':
-      const chars = await getChars();
+      const chars = await getChars(url);
       return CharContainer(chars);
     default:
       const elem = document.createElement('div');

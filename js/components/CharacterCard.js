@@ -13,11 +13,13 @@ const CharCard = char => {
   );
   elem.innerHTML = `<h1 style="margin-bottom:10px">${char.name}</h1>
                     <p>${char.birth_year}</p>`;
+
   elem.addEventListener('mouseenter', () => {
     elem.style.transform = 'scale(1.1)';
   });
   elem.addEventListener('mouseleave', () => {
     elem.style.transform = 'scale(1)';
   });
+
   return elem;
 };
