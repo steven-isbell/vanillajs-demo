@@ -14,7 +14,6 @@ class Router {
     this.hasChanged(r);
   }
   hasChanged(r) {
-    console.log(this);
     if (window.location.hash.length > 0) {
       for (let i = 0, length = r.length; i < length; i++) {
         let route = r[i];
