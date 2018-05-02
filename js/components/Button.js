@@ -2,6 +2,10 @@ class Button {
   constructor(text, url) {
     this.text = text;
     this.url = url;
+    this.handleContentRender = this.handleContentRender.bind(this);
+  }
+  handleContentRender() {
+    return renderContent(this.url);
   }
   render() {
     console.log(this.url);
@@ -16,9 +20,7 @@ class Button {
       margin: 5px;
       color: #fff;`
     );
-    elem.addEventListener('click', async () => {
-      return renderContent(this.url);
-    });
+    elem.addEventListener('click', this.handleContentRender);
     return elem;
   }
 }
