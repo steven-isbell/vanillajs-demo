@@ -27,18 +27,27 @@ function getChars(url = BASE_URL) {
 const CharContainer = chars => {
   const { results } = chars;
   const elem = document.createElement('div');
+  const cardGrp = document.createElement('div');
   const buttonGrp = document.createElement('div');
 
   elem.setAttribute(
     'style',
     `display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;`
+    justify-content: center;
+    flex-direction: column`
+  );
+
+  cardGrp.setAttribute(
+    'style',
+    `display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;`
   );
 
   const characters = results.map(CharCard);
-  characters.forEach(val => elem.appendChild(val));
+  characters.forEach(val => cardGrp.appendChild(val));
 
   const nextBtn = new Button('next', chars.next);
   const prevBtn = new Button(
@@ -52,6 +61,7 @@ const CharContainer = chars => {
   buttonGrp.appendChild(nextBtn.render());
   buttonGrp.appendChild(prevBtn.render());
 
+  elem.appendChild(cardGrp);
   elem.appendChild(buttonGrp);
 
   return elem;
