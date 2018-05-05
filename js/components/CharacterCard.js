@@ -21,6 +21,9 @@ const CharCard = char => {
   elem.addEventListener('mouseleave', () => {
     elem.style.transform = 'scale(1)';
   });
+  elem.addEventListener('click', () => {
+    location.hash = `#character/${char.name.split(' ')[0]}`;
+  });
 
   return elem;
 };
