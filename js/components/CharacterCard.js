@@ -22,7 +22,7 @@ const CharCard = char => {
     elem.style.transform = 'scale(1)';
   });
   elem.addEventListener('click', () => {
-    location.hash = `#character/${char.name.split(' ')[0]}`;
+    location.hash = `#/character/${char.name.split(' ')[0]}`;
   });
 
   return elem;

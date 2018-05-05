@@ -5,10 +5,12 @@ const renderElem = document.getElementById('app');
 const renderContent = url => {
   return App(url).then(val => {
     const prev = renderElem.childNodes[0] || null;
-    if (prev) {
+    console.log(prev, val);
+    if (prev && val) {
       return renderElem.replaceChild(val, prev);
+    } else if (val) {
+      renderElem.appendChild(val);
     }
-    renderElem.appendChild(val);
   });
 };
 

@@ -9,9 +9,9 @@ class Button {
     return renderContent(this.url);
   }
   render() {
-    console.log(this.url);
     const elem = document.createElement('button');
     elem.innerText = this.text;
+
     elem.setAttribute(
       'style',
       `padding: 20px;
@@ -22,6 +22,7 @@ class Button {
       color: #fff;`
     );
     elem.addEventListener('click', this.handleContentRender);
+
     return elem;
   }
 }

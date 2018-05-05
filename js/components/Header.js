@@ -9,10 +9,10 @@ const Header = () => {
                       </li>
                       <div style="display:flex;align-items:center;justify-content:space-between;width:20%;max-width:150px;">
                         <li>
-                          <a href="#home">Home</a>
+                          <a href="#/home">Home</a>
                         </li>
                         <li>
-                          <a href="#characters">Characters</a>
+                          <a href="#/characters">Characters</a>
                         </li>
                       </div>
                     </ul>
