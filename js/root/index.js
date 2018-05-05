@@ -5,7 +5,6 @@ const renderElem = document.getElementById('app');
 const renderContent = url => {
   return App(url).then(val => {
     const prev = renderElem.childNodes[0] || null;
-    console.log(prev, val);
     if (prev && val) {
       return renderElem.replaceChild(val, prev);
     } else if (val) {
