@@ -49,23 +49,27 @@ const CharContainer = chars => {
     flex-wrap: wrap;`
   );
 
-  const characters = results.map(CharCard);
-  characters.forEach(val => cardGrp.appendChild(val));
+  const characters = results ? results.map(CharCard) : CharCard(chars);
 
-  const nextBtn = new Button('next', chars.next);
-  const prevBtn = new Button(
-    'prev',
-    !(parseInt(chars.next[chars.next.length - 1]) - 2)
-      ? BASE_URL
-      : chars.next.slice(0, -1) +
-        `${parseInt(chars.next[chars.next.length - 1]) - 2}`
-  );
+  if (!Array.isArray(characters)) {
+    cardGrp.appendChild(characters);
+    elem.appendChild(cardGrp);
+  } else {
+    characters.forEach(val => cardGrp.appendChild(val));
+    const nextBtn = new Button('next', chars.next);
+    const prevBtn = new Button(
+      'prev',
+      !(parseInt(chars.next[chars.next.length - 1]) - 2)
+        ? BASE_URL
+        : chars.next.slice(0, -1) +
+          `${parseInt(chars.next[chars.next.length - 1]) - 2}`
+    );
 
-  buttonGrp.appendChild(prevBtn.render());
-  buttonGrp.appendChild(nextBtn.render());
-
-  elem.appendChild(cardGrp);
-  elem.appendChild(buttonGrp);
+    buttonGrp.appendChild(prevBtn.render());
+    buttonGrp.appendChild(nextBtn.render());
+    elem.appendChild(cardGrp);
+    elem.appendChild(buttonGrp);
+  }
 
   return elem;
 };
