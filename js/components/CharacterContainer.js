@@ -5,9 +5,10 @@ const BASE_URL = 'https://www.swapi.co/api/people';
 
 // XMLHttpRequest Handler
 function getChars(url = BASE_URL) {
+  const people = localStorage.getItem('people');
   return new Promise(function(resolve, reject) {
-    if (cache.people && url === BASE_URL) {
-      resolve(cache.people);
+    if (people && url === BASE_URL) {
+      resolve(JSON.parse(people));
     } else {
       const xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
@@ -15,8 +16,8 @@ function getChars(url = BASE_URL) {
           renderElem.innerText = 'Loading...';
         } else if (this.readyState === 4 && this.status === 200) {
           renderElem.innerText = null;
+          localStorage.setItem('people', this.responseText);
           const response = JSON.parse(this.responseText);
-          cache.people = response;
           resolve(response);
         }
       };
