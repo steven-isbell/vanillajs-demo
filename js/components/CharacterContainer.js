@@ -1,6 +1,3 @@
-// chace the request
-const cache = {};
-
 const BASE_URL = 'https://www.swapi.co/api/people';
 
 // XMLHttpRequest Handler
