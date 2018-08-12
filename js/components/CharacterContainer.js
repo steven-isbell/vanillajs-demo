@@ -7,19 +7,29 @@ function getChars(url = BASE_URL) {
     if (people && url === BASE_URL) {
       resolve(JSON.parse(people));
     } else {
-      const xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState !== 4) {
-          renderElem.innerText = 'Loading...';
-        } else if (this.readyState === 4 && this.status === 200) {
+      renderElem.innerText = 'Loading...';
+      ////// Using new Fetch API ///////
+      fetch(url)
+        .then(response => response.json())
+        .then(response => {
           renderElem.innerText = null;
-          localStorage.setItem('people', this.responseText);
-          const response = JSON.parse(this.responseText);
+          localStorage.setItem('people', JSON.stringify(response.results));
           resolve(response);
-        }
-      };
-      xhttp.open('GET', url, true);
-      xhttp.send();
+        });
+      /////////////// OLD XHR Style ////////////////
+      // const xhttp = new XMLHttpRequest();
+      // xhttp.onreadystatechange = function() {
+      //   if (this.readyState !== 4) {
+      //     renderElem.innerText = 'Loading...';
+      //   } else if (this.readyState === 4 && this.status === 200) {
+      //     renderElem.innerText = null;
+      //     localStorage.setItem('people', this.responseText);
+      //     const response = JSON.parse(this.responseText);
+      //     resolve(response);
+      //   }
+      // };
+      // xhttp.open('GET', url, true);
+      // xhttp.send();
     }
   });
 }
